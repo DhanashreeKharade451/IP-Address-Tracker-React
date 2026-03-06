@@ -3,9 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import MyMap from './components/Mymap'
-import searchIPAddress from './components/SearchIPAddress'
-
-const API_KEY = "at_JRU4SsXqx6Kuf3txHZffrDCoIBaDM"
+import SearchIPAddress from './components/SearchIPAddress'
+const apiKey  = import.meta.env.VITE_API_KEY;
 
 function App() {
   const [ipData, setIPData] = useState(null);
@@ -17,14 +16,21 @@ function App() {
      }, []); 
 
   const fetchIP = async(ip = "") => {
-     
+     try{
+      const res =await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&ipAddress=${ip}`);
+      const data =await res.json();
+      setIPData(data);
 
-  }
+     }catch(error){
+      console.error(error);
+     }
+
+  };
 
   return (
     <div>
-<searchIPAddress onSearch = {fetchIP}/>
-    <MyMap/>
+<SearchIPAddress onSearch = {fetchIP}/>
+    {ipData && <MyMap ipData ={ipData}/>}
 
     </div>
    
