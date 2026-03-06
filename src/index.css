@@ -1,7 +1,25 @@
 
+:root {
+  --Very-Dark-Gray: hsl(0, 0%, 17%);
+  --Dark-Gray: hsl(0, 0%, 59%);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body{
-  margin:0;
-  font-family: Arial, sans-serif;
+  font-size: 18px;
+  /* font-weight: 400; */
+  min-height: 100vh;
+  margin: 0;
+  color: var(--Very-Dark-Gray);
+  background-color: #f9f9f9;
+  line-height: 1.5;
+  
 }
 
 #searchForm{
