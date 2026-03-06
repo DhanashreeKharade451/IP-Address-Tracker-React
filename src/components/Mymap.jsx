@@ -1,31 +1,33 @@
-import { MapContainer, TileLayer, Marker, useMAp } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 import { useEffect } from "react";
 import "leaflet/dist/leaflet.css";
 
-
-function MyMap({ lat, lng }) {
-     
-  const position = [lat, lng];
-
-   if (lat != null && lng != null) {
+function RecenterMap({ lat, lng }) {
+  const map = useMap();
+  if (lat != null && lng != null) {
     map.setView([lat, lng], 13); // Recenter map
   }
   return null;
 }
 
+function MyMap({ lat, lng }) {
+  if (lat == null || lng == null) return null;
+  const position = [lat, lng];
+
   return (
-    <div id = "map">
+    <div id="map">
       <MapContainer
         center={position}
         zoom={13}
         style={{ height: "60vh", width: "100%" }}
       >
-        <TileLayer 
-        attribution='© OpenStreetMap'
+        <TileLayer
+          attribution="© OpenStreetMap"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
         <Marker position={position} />
+         <RecenterMap lat={lat} lng={lng} />
       </MapContainer>
     </div>
   );
