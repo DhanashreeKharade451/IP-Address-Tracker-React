@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import MyMap from './components/Mymap'
 import SearchIPAddress from './components/SearchIPAddress'
+
+
 const apiKey  = import.meta.env.VITE_API_KEY;
 
 function App() {
@@ -30,11 +32,14 @@ function App() {
   return (
     <div>
 <SearchIPAddress onSearch = {fetchIP}/>
-    {ipData && <MyMap ipData ={ipData}/>}
+    {ipData && <MyMap 
+    lat={ipData.location.lat}
+            lng={ipData.location.lng}
+    />}
 
     </div>
    
   )
 }
 
-export default App
+export default App;

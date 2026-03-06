@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import arrowIcon from "../assets/images/icon-arrow.svg";
 
@@ -29,12 +30,12 @@ import arrowIcon from "../assets/images/icon-arrow.svg";
 // }
 // export default SearchIpAddress;
 
-const SearchIPAddress = ({fetchIP}) => {
+const SearchIPAddress = ({onSearch}) => {
   const [query, setQuery] = useState("");
 
   const handleSubmit = (e) => {
       e.preventDefault();
-      fetchIP(query);
+      onSearch(query);
       setQuery("");
 
   };
@@ -47,9 +48,9 @@ const SearchIPAddress = ({fetchIP}) => {
           <div className="searchbox">
               <input type="text"
               id="searchInput"
-            placeholder="Search for IP or domain"
+            placeholder="Search for IP address or domain"
             value={query}
-            onChange={(e) => set(e.target.value)}
+            onChange={(e) => setQuery(e.target.value)}
 
             />
             <button type="submit" id="submit">
