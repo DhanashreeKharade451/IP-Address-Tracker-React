@@ -17,15 +17,16 @@ const SearchIPAddress = ({ fetchIp }) => {
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
-        backgroundPosition: "top center",
+        backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         height: "35vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        padding: "2rem",
+        // padding: "2rem",
         textAlign: "center",
         justifyContent: "center",
+        
       }}
     >
       <form id="searchForm" onSubmit={handleSubmit}>
