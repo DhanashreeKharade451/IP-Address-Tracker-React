@@ -1,11 +1,17 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, useMAp } from "react-leaflet";
 import { useEffect } from "react";
 import "leaflet/dist/leaflet.css";
 
 
-
 function MyMap({ lat, lng }) {
+     
   const position = [lat, lng];
+
+   if (lat != null && lng != null) {
+    map.setView([lat, lng], 13); // Recenter map
+  }
+  return null;
+}
 
   return (
     <div id = "map">

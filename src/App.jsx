@@ -1,45 +1,50 @@
-import { useState,useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import MyMap from './components/Mymap'
-import SearchIPAddress from './components/SearchIPAddress'
+import { useState, useEffect } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import MyMap from "./components/Mymap";
+import SearchIPAddress from "./components/SearchIPAddress";
+import InfoCard from "./components/InfoCard";
+import axios from "axios";
 
-
-const apiKey  = import.meta.env.VITE_API_KEY;
+const apiKey = import.meta.env.VITE_API_KEY;
 
 function App() {
-  const [ipData, setIPData] = useState(null);
+  const [data, setData] = useState(null);
+  
+
+  const fetchIP = async (ipAddress= "") => {
+    try {
+      const res = await axios.get(
+        `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&ipAddress=${ipAddress}`,
+      );
+      //const data =await res.json();
+      
+      setData(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   // Fetch user's IP on page load
 
-     useEffect(() =>{
-      fetchIP();
-     }, []); 
-
-  const fetchIP = async(ip = "") => {
-     try{
-      const res =await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&ipAddress=${ip}`);
-      const data =await res.json();
-      setIPData(data);
-
-     }catch(error){
-      console.error(error);
-     }
-
-  };
+  useEffect(() => {
+    fetchIP();
+  }, []);
 
   return (
-    <div>
-<SearchIPAddress onSearch = {fetchIP}/>
-    {ipData && <MyMap 
-    lat={ipData.location.lat}
-            lng={ipData.location.lng}
-    />}
+    <main>
+      <section>
+      <SearchIPAddress fetchIp={fetchIP} />
 
-    </div>
-   
-  )
+      {data && <InfoCard data={data} />}
+      {data && <MyMap 
+      lat={data.location.lat} 
+      lng={data.location.lng} />}
+    
+    </section>
+    </main>
+  );
 }
 
 export default App;
