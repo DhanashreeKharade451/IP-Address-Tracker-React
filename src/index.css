@@ -50,6 +50,28 @@ body{
 
 /* Info card */
 
+/* .middle{
+  display:grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 1rem;
+   background:white;
+   
+   border-radius:12px;
+    padding:2rem;
+   width:min(1100px, 90%);
+   
+  margin: -18vh auto 0;
+  margin-top: 70px ;
+ 
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  position: absolute;
+   top:180px;
+  left:50%;
+  transform:translateX(-50%);
+
+  z-index: 2;
+} */
+
 .middle{
   display:grid;
   grid-template-columns: repeat(4,1fr);
@@ -61,10 +83,13 @@ body{
    width:min(1100px, 90%);
    /* margin: -15vh auto 0; */
   margin: -18vh auto 0;
-  margin-top: -70px ;
+  margin-top: 70px ;
  
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  position: relative;
+  position: absolute;
+   top:180px;
+  left:50%;
+  transform:translateX(-50%);
 
   z-index: 2;
 }
@@ -103,8 +128,8 @@ body{
   height:60vh;
   margin: 0;
   padding: 0;
-  /* position: relative;
-  z-index: 1; */
+  position: relative;
+  z-index: 1;
 }
 
 .info-item:not(:last-child){
@@ -130,7 +155,7 @@ body{
   .middle{
     grid-template-columns: 1fr;
     padding: 1.5rem;
-     margin:-60px auto 0;
+     margin:-50px auto 0;
   }
    /* #searchInput{
     width:220px;
