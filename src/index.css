@@ -95,6 +95,12 @@ body{
   z-index: 1;
 }
 
+.info-item:not(:last-child){
+  border-right:1px solid #e5e5e5;
+  margin: 20px;
+  
+}
+
 @media(max-width:900px){
   .middle{
     grid-template-columns: repeat(2,1fr);

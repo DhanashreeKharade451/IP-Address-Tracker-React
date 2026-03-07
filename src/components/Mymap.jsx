@@ -1,6 +1,14 @@
 import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 import { useEffect } from "react";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+import markerIcon from "../assets/images/icon-location.svg"
+
+const customIcon = new L.Icon({
+  iconUrl: markerIcon,
+  iconSize: [40, 50],
+  iconAnchor: [20, 50],
+});
 
 function RecenterMap({ lat, lng }) {
   const map = useMap();
@@ -26,7 +34,7 @@ function MyMap({ lat, lng }) {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        <Marker position={position} />
+        <Marker position={position} icon={customIcon} />
          <RecenterMap lat={lat} lng={lng} />
       </MapContainer>
     </div>

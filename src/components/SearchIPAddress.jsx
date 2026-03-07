@@ -5,6 +5,8 @@ import bgImage from "../assets/images/pattern-bg-desktop.png";
 const SearchIPAddress = ({ fetchIp }) => {
   const [query, setQuery] = useState("");
 
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     fetchIp(query);
