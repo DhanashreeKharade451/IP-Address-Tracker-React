@@ -36,7 +36,6 @@ function App() {
     <main>
       <section>
       <SearchIPAddress fetchIp={fetchIP} />
-
       {data && <InfoCard data={data} />}
       {data && <MyMap 
       lat={data.location.lat} 
