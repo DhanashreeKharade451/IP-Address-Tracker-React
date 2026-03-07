@@ -25,14 +25,14 @@ const SearchIPAddress = ({ fetchIp }) => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        // padding: "2rem",
+        
         textAlign: "center",
         justifyContent: "center",
         
       }}
     >
       <form id="searchForm" onSubmit={handleSubmit}>
-        <h1 style={{font:20px}}>IP Address Tracker</h1>
+        <h1 style={{}}>IP Address Tracker</h1>
 
         <div className="searchbox">
           <input
