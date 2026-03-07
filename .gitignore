@@ -77,7 +77,7 @@ npm install
 Start the development server
 npm run dev
 Open the application in your browser
-
+************************
 
 API Configuration:
 
@@ -98,7 +98,6 @@ Add animation when the map location updates
 *******************************************************************************************
 Author
 Dhanashree Kharade
-
 
 ***************************************************
 # Logs
