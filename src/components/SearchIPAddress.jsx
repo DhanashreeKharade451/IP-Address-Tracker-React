@@ -32,7 +32,7 @@ const SearchIPAddress = ({ fetchIp }) => {
       }}
     >
       <form id="searchForm" onSubmit={handleSubmit}>
-        <h1>IP Address Tracker</h1>
+        <h1 style={{font:20px}}>IP Address Tracker</h1>
 
         <div className="searchbox">
           <input
